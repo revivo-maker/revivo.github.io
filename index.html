@@ -4,7 +4,40 @@
 <meta charset="UTF-8">
 <title>Untitled Document</title>
 </head>
-	<p>Hello World</p>
+	<p>See below</p>
+	
+	
+	<div id="testimonials"></div>
+
+	<script>
+fetch("https://script.google.com/macros/s/AKfycbynhNHNjKIHtQhyNNwjvxPR1wyKu4XMQAw6dbz57oKzRqOtsPXcCtc_B64U5sMkUvK8/exec")
+  .then(response => response.json())
+  .then(testimonials => {
+    const container = document.getElementById("testimonials");
+
+    testimonials.forEach(item => {
+      const block = document.createElement("div");
+      block.className = "testimonial";
+
+      const text = document.createElement("p");
+      text.textContent = item.text;
+
+      block.appendChild(text);
+      container.appendChild(block);
+    });
+  })
+  .catch(err => {
+    console.error("Error loading testimonials", err);
+  });
+</script>
+<style>
+.testimonial {
+  border-left: 4px solid #ccc;
+  padding: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+</style
 
 <body>
 </body>
